@@ -1,15 +1,24 @@
 @charset "UTF-8";
 
 :root{
-    --btnGreen: ;
-    color: gr;
 }
 
-*{
-    /* box-sizing: ; */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
+
+/* mất dấu mũi tên */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 html{
     font-size: 62.5%;
@@ -18,43 +27,57 @@ html{
 
 body {
     font-family: Arial, sans-serif;
+    font-size: 1.5rem;
 }
 
-.login-container {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
+.title{
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0 1rem;
+    line-height: 2;
+}
+
+.container_s {
+    min-width: 50rem;
+    margin: auto;
+    padding: 2rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-container h2 {
+.center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.justify_content_sb{
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify_content_e{
+    display: flex;
+    justify-content: end;
+}
+
+.al-c{
     text-align: center;
 }
 
-.form-group {
-    margin: 10px 0;
+.al-e{
+    text-align: end !important;
 }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
+.ml{
+    display: flex;
+    margin-left: auto;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.text{
+    font-size: 1.5rem !important;
+    font-weight: 500;
 }
 
-.form-group button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
