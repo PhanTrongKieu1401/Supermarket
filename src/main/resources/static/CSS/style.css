@@ -37,7 +37,15 @@ body {
     line-height: 2;
 }
 
+.title_s{
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 1rem;
+    line-height: 2;
+}
+
 .container_s {
+    max-width: 50rem;
     min-width: 50rem;
     margin: auto;
     padding: 2rem;
@@ -56,6 +64,11 @@ body {
 .justify_content_sb{
     display: flex;
     justify-content: space-between;
+}
+
+.justify_content_sa{
+    display: flex;
+    justify-content: space-around;
 }
 
 .justify_content_e{
@@ -81,3 +94,7 @@ body {
     font-weight: 500;
 }
 
+.scroll_y{
+    max-height: 30rem;
+    overflow-y: scroll !important;
+}

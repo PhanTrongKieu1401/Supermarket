@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <title>Payment Cash</title>
+</head>
+<body>
+    <div class="container_s center">
+        <h1 class="al-c title">Payment cash</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Tổng tiền phải trả:</td>
+                    <td>
+                        <input type="number" id="amounttobepaid" name="tongtienphaitra" value="Tổng tiền phải trả" disabled="disabled">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số tiền khách trả:</td>
+                    <td>
+                        <input type="number" id="customerpaid" name="sotienkhachtra" value="Số tiền khách trả">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số tiền trả khách:</td>
+                    <td>
+                        <input type="number" id="returnedcustomer" name="sotientrakhach" value="Số tiền trả khách" disabled="disabled">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row justify_content_e">
+            <button type="submit" class="btn btn-primary text mr-3">Xác nhận</button>
+            <button type="button" class="btn btn-danger text">Quay lại</button>
+        </div>
+    </div>
+</body>
+</html>

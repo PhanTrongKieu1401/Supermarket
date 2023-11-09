@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <title>Member Card</title>
+</head>
+<body>
+    <div class="container_s center">
+        <h1 class="al-c title">Member card</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Mã thẻ thành viên:</td>
+                    <td>
+                        <input type="text" id="idmembercard" name="ma" value="Mã thẻ thành viên">
+                        <button type="button" class="btn btn-primary text mr-3">Kiểm tra</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mã khách hàng:</td>
+                    <td><input type="text" id="idcustomer" name="ma" value="Mã khách hàng" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng:</td>
+                    <td><input type="text" id="customername" name="tenkhachhang" value="Tên khách hàng" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td><input type="text" id="customerphone" name="sodienthoai" value="Số điện thoại" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" id="customeremail" name="email" value="Email" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td><input type="text" id="customeraddress" name="diachi" value="Địa chỉ" disabled="disabled"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row justify_content_e">
+            <button type="submit" class="btn btn-primary text mr-3">Xác nhận</button>
+            <button type="button" class="btn btn-danger text">Quay lại</button>
+        </div>
+    </div>
+</body>
+</html>
