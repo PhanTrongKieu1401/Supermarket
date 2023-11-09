@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <title>Bill detail</title>
+</head>
+<body>
+    <div class="container mb-5">
+        <h1 class="al-c title">Bill detail</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Mã:</td>
+                    <td><input type="text" id="idbill" name="ma" value="Mã hóa đơn" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Tên siêu thị:</td>
+                    <td><input type="text" name="tensieuthi" value="Tên siêu thị" disabled="disabled"></td>
+                    <td>Địa chỉ siêu thị:</td>
+                    <td><input type="text" name="diachisieuthi" value="Địa chỉ siêu thị" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Mã TN:</td>
+                    <td><input type="text" id="idcashier" name="ma" value="Mã thu ngân" disabled="disabled"></input></td>
+                    <td>Tên TN:</td>
+                    <td><input type="text" id="cashiername" name="tenthungan" value="Tên thu ngân" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại KH:</td>
+                    <td><input type="text" id="customerphone" name="sodienthoai" value="Số điện thoại" disabled="disabled"></td>
+                    <td>Ngày thanh toán:</td>
+                    <td><input type="date" id="paymentdate" name="email" value="Ngày thanh toán" disabled="disabled"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Mã MH</th>
+                    <th scope="col">Tên MH</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Số tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr><tr>
+                    <th scope="row">1</th>
+                    <td>1</td>
+                    <td>Snack</td>
+                    <td>5000vnđ</td>
+                    <td>1</td>
+                    <td>5000vnđ</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table col-md-6">
+            <tbody>
+                <tr>
+                    <td><label for="totalbeforediscount">Tổng tiền trước giảm:</label></td>
+                    <td><input type="number" name="tongtientruocgiam" id="totalbeforediscount" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="numberofproduct">Số lượng mặt hàng:</label></td>
+                    <td><input type="number" name="soluongmathang" id="numberofproduct" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="reducesamount">Số tiền được giảm:</label></td>
+                    <td><input type="number" name="sotienduocgiam" id="reducesamount" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="amounttobepaid">Số tiền phải thanh toán:</label></td>
+                    <td><input type="number" name="sotienphaithanhtoan" id="amounttobepaid" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="paymentmethod">Phương thức thanh toán:</label></td>
+                    <td><input type="number" name="phuongthucthanhtoan" id="paymentmethod" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="customerpaid">Số tiền khách trả:</label></td>
+                    <td><input type="number" name="sotienkhachtra" id="customerpaid" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="returnedcustomer">Số tiền thối lại:</label></td>
+                    <td><input type="number" name="sotienthoilai" id="returnedcustomer" disabled="disabled"></td>
+                </tr>
+            </tbody>
+        </table>      
+        <div class="row justify_content_e">
+            <button type="button" class="btn btn-danger text">Quay lại</button>
+        </div>
+    </div>
+</body>
+
+</html>
