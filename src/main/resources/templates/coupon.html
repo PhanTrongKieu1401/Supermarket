@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
     <title>Coupon</title>
 </head>
 <body>
@@ -19,29 +19,49 @@
             <tbody>
                 <tr>
                     <td>Mã giảm giá:</td>
-                    <td>
-                        <input type="text" id="idcoupon" name="ma" value="Mã giảm giá">
-                        <button type="button" class="btn btn-primary text mr-3">Kiểm tra</button>
+                    <td th:if="${session.coupon}">
+                        <input type="text" id="couponCode" name="couponCode" th:value="${session.coupon.couponCode}">
+                        <button type="button" class="btn btn-primary text mr-3" th:onclick="sendCouponCode()">Kiểm tra</button>
+                    </td>
+                    <td th:unless="${session.coupon}">
+                        <input type="text" id="couponCode" name="couponCode">
+                        <button type="button" class="btn btn-primary text mr-3" th:onclick="sendCouponCode()">Kiểm tra</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Giá trị:</td>
-                    <td><input type="text" id="value" name="giatri" value="Giá trị phiếu giảm giá" disabled="disabled"></td>
+                    <td th:if="${session.coupon}">
+                    	<input type="text" id="value" name="value" th:value="${session.coupon.value}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.coupon}">
+                    	<input type="text" id="value" name="value" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Ngày phát hành:</td>
-                    <td><input type="date" id="releasedate" name="ngayphathanh" value="Ngày phát hành" disabled="disabled"></td>
+                    <td th:if="${session.coupon}">
+                    	<input type="date" id="releaseDate" name="releaseDate" th:value="${session.coupon.releaseDate}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.coupon}">
+                    	<input type="date" id="releaseDate" name="releaseDate" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Ngày hết hạn:</td>
-                    <td><input type="date" id="outofdate" name="ngayhethan" value="Ngày hết hạn" disabled="disabled"></td>
+                    <td th:if="${session.coupon}">
+                    	<input type="date" id="outOfDate" name="outOfDate" th:value="${session.coupon.outOfDate}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.coupon}">
+                    	<input type="date" id="outOfDate" name="outOfDate" disabled="disabled">
+                    </td>
                 </tr>
             </tbody>
         </table>
         <div class="row justify_content_e">
-            <button type="submit" class="btn btn-primary text mr-3">Xác nhận</button>
-            <button type="button" class="btn btn-danger text">Quay lại</button>
+            <a th:href="@{/supermarket/member/bill/add_coupon}" type="button" class="btn btn-primary text mr-3">Xác nhận</a>
+            <a th:href="@{/supermarket/member/payment}" type="button" class="btn btn-danger text">Quay lại</a>
         </div>
     </div>
+    <script th:src="@{/JS/coupon.js}"></script>
 </body>
 </html>

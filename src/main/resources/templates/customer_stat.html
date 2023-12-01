@@ -8,24 +8,24 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
     <title>Customer Stat</title>
 </head>
 <body>
 	<div class="container mb-5">
         <h1 class="title">Customer Stat</h1>
-        <form action="" method="post" class="justify_content_sb mb-3">
+        <form th:action="@{/supermarket/member/stat/customer}" th:method="GET" class="justify_content_sb mb-3" th:onsubmit="return validateDate()">
             <div class="form-group">
-                <label for="startday">Ngày bắt đầu:</label>
-                <input type="date" id="startday" name="ngaybatdau" value="Ngày bắt đầu">
+                <label for="startDate">Ngày bắt đầu:</label>
+                <input type="date" id="startDate" name="startDate" value="Ngày bắt đầu">
             </div>
             <div class="form-group">
-                <label for="endday">Ngày kết thúc:</label>
-                <input type="date" id="endday" name="ngayketthuc" value="Ngày kết thúc">
+                <label for="endDate">Ngày kết thúc:</label>
+                <input type="date" id="endDate" name="endDate" value="Ngày kết thúc">
             </div>
             <div class="btn-group">
                 <button type="submit" class="btn btn-primary text mr-5">Kiểm tra</button>
-                <button type="button" class="btn btn-danger text">Quay lại</button>
+                <a th:href="@{/supermarket/member/stat/back}" type="button" class="btn btn-danger text">Quay lại</a>
             </div>
         </form>
         <table class="table">
@@ -44,40 +44,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>Kiều</td>
-                    <td>1234</td>
-                    <td>k@gmail.com</td>
-                    <td>Đống đa</td>
-                    <td>50000</td>
-                    <td>5</td>
-                    <td>5</td>
+                <tr th:each="customerStat, iterStat : ${session.customerStats}">
+                    <th scope="row" th:text="${iterStat.index + 1}"></th>
+                    <td th:text="${customerStat.id}"></td>
+                    <td th:text="${customerStat.name}"></td>
+                    <td th:text="${customerStat.phoneNumber}"></td>
+                    <td th:text="${customerStat.email}"></td>
+                    <td th:text="${customerStat.address}"></td>
+                    <td th:text="${customerStat.totalAmountOfPurchased}"></td>
+                    <td th:text="${customerStat.totalNumberPurchased}"></td>
+                    <td th:text="${customerStat.totalNumberProducts}"></td>
                     <td>
-                        <button type="submit" class="btn btn-primary text">Xem</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>2</td>
-                    <td>Luân</td>
-                    <td>12345</td>
-                    <td>l@gmail.com</td>
-                    <td>Đống đa</td>
-                    <td>50000</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>
-                        <button type="submit" class="btn btn-primary text">Xem</button>
+                        <a th:href="@{/supermarket/member/stat/customer/{id}(id = ${customerStat.id})}" type="button" class="btn btn-primary text">Xem</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="row">
-            <label for="totalrevenue">Tổng doanh thu:</label>
-            <input type="text" name="tongdoanhthu" id="totalrevenue" disabled="disabled">
+            <label for="total">Tổng doanh thu:</label>
+            <input type="text" id="total" name="total" th:value="${session.total}" disabled="disabled">
         </div>
     </div>
+    <script th:src="@{/JS/customer_stat.js}"></script>
 </body>
 </html>

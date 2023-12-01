@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
     <title>Customer detail</title>
 </head>
 <body>
@@ -18,27 +18,27 @@
             <tbody>
                 <tr>
                     <td>Mã:</td>
-                    <td><input type="text" id="idcustomer" name="ma" value="Mã khách hàng" disabled="disabled"></td>
+                    <td><input type="text" id="id" name="id" th:value="${session.customerStat.id}" disabled="disabled"></td>
                     <td>Tên:</td>
-                    <td><input type="text" id="customername" name="ten" value="Tên khách hàng" disabled="disabled"></td>
+                    <td><input type="text" id="name" name="name" th:value="${session.customerStat.name}" disabled="disabled"></td>
                 </tr>
                 <tr>
                     <td>Số điện thoại:</td>
-                    <td><input type="text" id="customerphone" name="sodienthoai" value="Số điện thoại" disabled="disabled"></td>
+                    <td><input type="text" id="phoneNumber" name="phoneNumber" th:value="${session.customerStat.phoneNumber}" disabled="disabled"></td>
                     <td>Email:</td>
-                    <td><input type="email" id="customeremail" name="email" value="Email" disabled="disabled"></td>
+                    <td><input type="email" id="email" name="email" th:value="${session.customerStat.email}" disabled="disabled"></td>
                 </tr>
                 <tr>
                     <td>Địa chỉ:</td>
-                    <td><textarea id="customeraddress" name="diachi" rows="4" disabled="disabled">Địa chỉ</textarea></td>
+                    <td><input type="text" id="address" name="address" th:value="${session.customerStat.address}" disabled="disabled"></input></td>
                     <td>Tổng tiền hàng:</td>
-                    <td><input type="number" id="totalnumberpurchased" name="tongtienhang" value="Tổng tiền hàng" disabled="disabled"></td>
+                    <td><input type="number" id="totalAmountOfPurchased" name="totalAmountOfPurchased" th:value="${session.customerStat.totalAmountOfPurchased}" disabled="disabled"></td>
                 </tr>
                 <tr>
                     <td>Tổng số mặt hàng:</td>
-                    <td><input type="number" id="totalnumberproduct" name="tongsomathang" value="Tổng số mặt hàng" disabled="disabled"></td>
+                    <td><input type="number" id="totalNumberProducts" name="totalNumberProducts" th:value="${session.customerStat.totalNumberProducts}" disabled="disabled"></td>
                     <td>Số lần mua hàng:</td>
-                    <td><input type="number" id="totalamountofpurchased" name="solanmuahang" value="Số lần mua hàng" disabled="disabled"></td>
+                    <td><input type="number" id="totalNumberPurchased" name="totalNumberPurchased" th:value="${session.customerStat.totalNumberPurchased}" disabled="disabled"></td>
                 </tr>
             </tbody>
         </table>
@@ -48,7 +48,6 @@
                     <th scope="col">STT</th>
                     <th scope="col">Mã HĐ</th>
                     <th scope="col">Mã TN</th>
-                    <th scope="col">Tên siêu thị</th>
                     <th scope="col">Ngày thanh toán</th>
                     <th scope="col">Phương thức thanh toán</th>
                     <th scope="col">Tổng tiền</th>
@@ -56,34 +55,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>Hà Đông</td>
-                    <td>01/05/2023</td>
-                    <td>Tiền mặt</td>
-                    <td>5000vnđ</td>
+                <tr th:each="bill, iterBill : ${session.bills}">
+                    <th scope="row" th:text="${iterBill.index + 1}"></th>
+                    <td th:text="${bill.id}"></td>
+                    <td th:text="${bill.cashier.id}"></td>
+                    <td th:text="${bill.paymentDate}"></td>
+                    <td th:text="${bill.paymentMethod}"></td>
+                    <td th:text="${bill.total}"></td>
                     <td>
-                        <button type="submit" class="btn btn-primary text">Xem</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>Hà Đông</td>
-                    <td>01/05/2023</td>
-                    <td>Tiền mặt</td>
-                    <td>5000vnđ</td>
-                    <td>
-                        <button type="submit" class="btn btn-primary text">Xem</button>
+                        <a th:href="@{/supermarket/member/stat/customer/bill/{id}(id = ${bill.id})}" type="submit" class="btn btn-primary text">Xem</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="row justify_content_e">
-            <button type="button" class="btn btn-danger text">Quay lại</button>
+            <button type="button" th:onclick="window.history.back()" class="btn btn-danger text">Quay lại</button>
         </div>
     </div>
 </body>

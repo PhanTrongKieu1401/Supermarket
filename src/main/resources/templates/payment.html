@@ -9,172 +9,216 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
     <title>Payment</title>
 </head>
 
 <body>
     <div class="container mb-5">
         <h1 class="al-c title">Payment</h1>
-        <form action="/payment">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>Ngày thanh toán:</td>
-                        <td><input type="date" id="paymentdate" name="ngaythanhtoan" value="Ngày thanh toán"
-                                disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td>Tên siêu thị:</td>
-                        <td><input type="text" name="tensieuthi" value="Tên siêu thị" disabled="disabled"></td>
-                        <td>Địa chỉ siêu thị:</td>
-                        <td><input type="text" name="diachisieuthi" value="Địa chỉ siêu thị" disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td>Mã TN:</td>
-                        <td><input type="text" id="idcashier" name="ma" value="Mã thu ngân" disabled="disabled"></td>
-                        <td>Tên TN:</td>
-                        <td><input type="text" id="cashiername" name="tenthungan" value="Tên thu ngân" disabled="disabled">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Thẻ thành viên:</td>
-                        <td>
-                            <input type="text" id="idmembercard" name="ma" value="Thẻ thành viên" disabled="disabled">
-                            <button type="button" class="btn btn-primary text">Dùng</button>
-                        </td>
-                        <td>Phiếu giảm giá:</td>
-                        <td>
-                            <input type="text" id="idcoupon" name="ma" value="Phiếu giảm giá" disabled="disabled">
-                            <button type="button" class="btn btn-primary text">Dùng</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="title_s">
-                            Danh sách mặt hàng:
-                        </td>
-                        <td class="title_s">
-                            Thông tin sản phẩm:
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">STT</th>
-                                        <th scope="col">Mã MH</th>
-                                        <th scope="col">Tên MH</th>
-                                        <th scope="col">Đơn giá</th>
-                                        <th scope="col">Số lượng</th>
-                                        <th scope="col">Thành tiền</th>
-                                        <th scope="col">Sửa</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>1</td>
-                                        <td>Snack</td>
-                                        <td>5000vnđ</td>
-                                        <td>1</td>
-                                        <td>5000vnđ</td>
-                                        <td><button type="button" class="btn btn-warning text">Sửa</button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>1</td>
-                                        <td>Snack</td>
-                                        <td>5000vnđ</td>
-                                        <td>1</td>
-                                        <td>5000vnđ</td>
-                                        <td><button type="button" class="btn btn-warning text">Sửa</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Mã sản phẩm:</td>
-                                        <td>
-                                            <input type="text" id="idproduct" name="ma" value="Mã sản phẩm">
-                                            <button type="button" class="btn btn-primary text">Kiểm tra</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tên sản phẩm:</td>
-                                        <td><input type="text" id="productname" name="ten" value="Tên sản phẩm" disabled="disabled"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kích thước:</td>
-                                        <td><input type="number" id="productsize" name="kichthuoc" value="Kích thước" disabled="disabled"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hạn sử dụng:</td>
-                                        <td><input type="date" id="productexpirydate" name="hansudung" value="Hạn sử dụng" disabled="disabled"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Đơn giá:</td>
-                                        <td><input type="number" id="price" name="dongia" value="Đơn giá"
-                                                disabled="disabled"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số lượng:</td>
-                                        <td><input type="number" id="quantity" name="soluong" value="Số lượng"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Thành tiền:</td>
-                                        <td><input type="number" id="total" name="thanhtien" value="Thành tiền"
-                                                disabled="disabled"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="row justify_content_e">
-                                <button type="button" class="btn btn-primary text mr-3">Lưu</button>
-                                <button type="button" class="btn btn-danger text">Xóa</button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table col-md-6">
-                <tbody>
-                    <tr>
-                        <td><label for="totalbeforediscount">Tổng tiền trước giảm:</label></td>
-                        <td><input type="number" name="tongtientruocgiam" id="totalbeforediscount" disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="numberofproduct">Số lượng mặt hàng:</label></td>
-                        <td><input type="number" name="soluongmathang" id="numberofproduct" disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="reducesamount">Số tiền được giảm:</label></td>
-                        <td><input type="number" name="sotienduocgiam" id="reducesamount" disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="amounttobepaid">Số tiền phải thanh toán:</label></td>
-                        <td><input type="number" name="sotienphaithanhtoan" id="amounttobepaid" disabled="disabled"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="customerpaid">Số tiền khách trả:</label></td>
-                        <td><input type="number" name="sotienkhachtra" id="customerpaid"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="returnedcustomer">Số tiền trả khách:</label></td>
-                        <td><input type="number" name="sotientrakhach" id="returnedcustomer" disabled="disabled"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="row justify_content_e">
-                <button type="submit" class="btn btn-primary text mr-3">Thanh toán</button>
-                <button type="button" class="btn btn-danger text">Hủy</button>
-            </div>
-        </form>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Ngày thanh toán:</td>
+                    <td><input type="date" id="paymentDate" name="paymentDate" th:value="${session.bill.paymentDate}" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Tên siêu thị:</td>
+                    <td><input type="text" name="tensieuthi" value="Brand Future" disabled="disabled"></td>
+                    <td>Địa chỉ siêu thị:</td>
+                    <td><input type="text" name="diachisieuthi" value="HaNoi" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td>Mã TN:</td>
+                    <td><input type="text" id="idCashier" name="idCashier" th:value="${session.bill.cashier.id}" disabled="disabled"></td>
+                    <td>Tên TN:</td>
+                    <td><input type="text" id="cashierName" name="cashierName" th:value="${session.bill.cashier.name}" disabled="disabled">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thẻ thành viên:</td>
+                    <td th:if="${session.bill.customer}">
+                        <input type="text" id="memberCode" name="memberCode" th:value="${session.bill.customer.memberCard.memberCode}" disabled="disabled">
+                        <a th:href="@{/supermarket/member/memberCard}" type="button" class="btn btn-primary text">Dùng</a>
+                    </td>
+                    <td th:unless="${session.bill.customer}">
+                        <input type="text" id="memberCode" name="memberCode" disabled="disabled">
+                        <a th:href="@{/supermarket/member/memberCard}" type="button" class="btn btn-primary text">Dùng</a>
+                    </td>
+                    <td>Phiếu giảm giá:</td>
+                    <td th:if="${session.bill.coupon}">
+                        <input type="text" id="couponCode" name="couponCode" th:value="${session.bill.coupon.couponCode}" disabled="disabled">
+                        <a th:href="@{/supermarket/member/coupon}" type="button" class="btn btn-primary text">Dùng</a>
+                    </td>
+                    <td th:unless="${session.bill.coupon}">
+                        <input type="text" id="couponCode" name="couponCode" disabled="disabled">
+                        <a th:href="@{/supermarket/member/coupon}" type="button" class="btn btn-primary text">Dùng</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="title_s">
+                        Danh sách mặt hàng:
+                    </td>
+                    <td class="title_s">
+                        Thông tin sản phẩm:
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Mã MH</th>
+                                    <th scope="col">Tên MH</th>
+                                    <th scope="col">Đơn giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Thành tiền</th>
+                                    <th scope="col">Sửa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:if="${session.bill.detailedBills.size() > 0}" th:each="detailedBill, dbStar : ${session.bill.detailedBills}">
+                                    <th scope="row" th:text="${dbStar.index+1}"></th>
+                                    <td th:text="${detailedBill.product.id}"></td>
+                                    <td th:text="${detailedBill.product.name}"></td>
+                                    <td th:text="${detailedBill.price}"></td>
+                                    <td th:text="${detailedBill.quantity}"></td>
+                                    <td th:text="${detailedBill.total}"></td>
+                                    <td>
+                                        <a th:href="@{/supermarket/member/bill/repair_product/{id}(id=${dbStar.index})}" type="button" class="btn btn-warning text">Sửa</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Mã sản phẩm:</td>
+                                    <td th:if="${session.product}">
+                                        <input type="text" id="idProduct" name="idProduct" th:value="${session.product.id}">
+                                        <button type="button" class="btn btn-primary text" th:onclick="sendIdProduct()">Kiểm tra</button>
+                                    </td>
+                                    <td th:unless="${session.product}">
+                                        <input type="text" id="idProduct" name="idProduct">
+                                        <button type="button" class="btn btn-primary text" th:onclick="sendIdProduct()">Kiểm tra</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tên sản phẩm:</td>
+                                    <td th:if="${session.product}">
+                                        <input type="text" id="name" name="name" th:value="${session.product.name}" disabled="disabled">
+                                    </td>
+                                    <td th:unless="${session.product}">
+                                        <input type="text" id="name" name="name" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kích thước:</td>
+                                    <td th:if="${session.product}">
+                                        <input type="number" id="size" name="size" th:value="${session.product.size}" disabled="disabled">
+                                    </td>
+                                    <td th:unless="${session.product}">
+                                        <input type="number" id="size" name="size" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hạn sử dụng:</td>
+                                    <td th:if="${session.product}">
+                                        <input type="date" id="expiryDate" name="expiryDate" th:value="${session.product.expiryDate}" disabled="disabled">
+                                    </td>
+                                    <td th:unless="${session.product}">
+                                        <input type="number" id="expiryDate" name="expiryDate" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Đơn giá:</td>
+                                    <td th:if="${session.product}">
+                                        <input type="number" id="price" name="price" th:value="${session.product.price}" disabled="disabled">
+                                    </td>
+                                    <td th:unless="${session.product}">
+                                        <input type="number" id="price" name="price" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Số lượng:</td>
+                                    <td th:if="${session.quantity}">
+                                        <input type="number" id="quantity" name="quantity" th:value="${session.quantity}" th:oninput="updateTotal()">
+                                    </td>
+                                    <td th:unless="${session.quantity}">
+                                        <input type="number" id="quantity" name="quantity" th:oninput="updateTotal()">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Thành tiền:</td>
+                                    <td th:if="${session.total}">
+                                        <input type="number" id="total" name="total" th:value="${session.total}" disabled="disabled">
+                                    </td>
+                                    <td th:unless="${session.total}">
+                                        <input type="number" id="total" name="total" disabled="disabled">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row justify_content_e">
+                            <button type="button" class="btn btn-primary text mr-3" th:onclick="addProductToBill()">Lưu</button>
+                            <a th:if="${session.product}" th:href="@{/supermarket/member/bill/delete_product/{id}(id=${session.product.id})}" type="button" class="btn btn-danger text">Xóa</a>
+                            <a th:unless="${session.product}" type="button" class="btn btn-danger text" th:onclick="recommand([[${session.bill.detailedBills.size()}]])">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table col-md-6">
+            <tbody>
+                <tr>
+                    <td><label for="totalbeforediscount">Tổng tiền trước giảm:</label></td>
+                    <td th:if="${session.bill}"><input type="number" id="totalBeforeDiscount" name="totalBeforeDiscount" th:value="${session.bill.total}" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="numberofproduct">Số lượng mặt hàng:</label></td>
+                    <td><input type="number" id="numberOfProduct" name="numberOfProduct" th:value="${session.totalNumberProducts}" disabled="disabled"></td>
+                </tr>
+                <tr>
+                    <td><label for="reducesamount">Số tiền được giảm:</label></td>
+                    <td th:if="${session.bill.coupon != null}">
+                        <input type="number" id="reducesAmount" name="reducesAmount" th:value="${session.bill.coupon.value}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.bill.coupon != null}">
+                        <input type="number" id="reducesAmount" name="reducesAmount" th:value="0" disabled="disabled">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="amountToBePaid">Số tiền phải thanh toán:</label></td>
+                    <td th:if="${session.bill.coupon != null}">
+                        <input type="number" id="amountToBePaid" name="amountToBePaid" 
+                        th:value="${session.bill.total - session.bill.coupon.value >= 0 ? session.bill.total - session.bill.coupon.value : 0}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.bill.coupon != null}">
+                        <input type="number" id="amountToBePaid" name="amountToBePaid" th:value="${session.bill.total}" disabled="disabled">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="customerPaid">Số tiền khách trả:</label></td>
+                    <td><input type="number" id="customerPaid" name="customerPaid" th:oninput="updateCustomerPaid()"></td>
+                </tr>
+                <tr>
+                    <td><label for="returnedCustomer">Số tiền trả khách:</label></td>
+                    <td><input type="number" id="returnedCustomer" name="returnedCustomer" disabled="disabled"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row justify_content_e">
+            <a th:href="@{/supermarket/member/bill/add}" type="submit" class="btn btn-primary text mr-3" th:onclick="return validatePayment()">Thanh toán</a>
+            <a type="button" class="btn btn-danger text">Hủy</a>
+        </div>
     </div>
+    <script th:src="@{/JS/payment.js}"></script>
 </body>
 
 </html>
+

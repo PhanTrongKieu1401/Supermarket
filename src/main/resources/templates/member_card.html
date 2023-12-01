@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
     <title>Member Card</title>
 </head>
 <body>
@@ -19,37 +19,67 @@
             <tbody>
                 <tr>
                     <td>Mã thẻ thành viên:</td>
-                    <td>
-                        <input type="text" id="idmembercard" name="ma" value="Mã thẻ thành viên">
-                        <button type="button" class="btn btn-primary text mr-3">Kiểm tra</button>
+                    <td th:if="${session.customer}">
+                        <input type="text" id="memberCode" name="memberCode" th:value="${session.customer.memberCard.memberCode}">
+                        <button type="button" class="btn btn-primary text mr-3" th:onclick="sendMemberCode()">Kiểm tra</button>
+                    </td>
+                    <td th:unless="${session.customer}">
+                        <input type="text" id="memberCode" name="memberCode">
+                        <button type="button" class="btn btn-primary text mr-3" th:onclick="sendMemberCode()">Kiểm tra</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Mã khách hàng:</td>
-                    <td><input type="text" id="idcustomer" name="ma" value="Mã khách hàng" disabled="disabled"></td>
+                    <td th:if="${session.customer}">
+                    	<input type="text" id="id" name="id" th:value="${session.customer.id}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.customer}">
+                    	<input type="text" id="id" name="id" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Tên khách hàng:</td>
-                    <td><input type="text" id="customername" name="tenkhachhang" value="Tên khách hàng" disabled="disabled"></td>
+                    <td th:if="${session.customer}">
+                    	<input type="text" id="name" name="name" th:value="${session.customer.name}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.customer}">
+                    	<input type="text" id="name" name="name" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Số điện thoại:</td>
-                    <td><input type="text" id="customerphone" name="sodienthoai" value="Số điện thoại" disabled="disabled"></td>
+                    <td th:if="${session.customer}">
+                    	<input type="text" id="phoneNumber" name="phoneNumber" th:value="${session.customer.phoneNumber}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.customer}">
+                    	<input type="text" id="phoneNumber" name="phoneNumber" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="email" id="customeremail" name="email" value="Email" disabled="disabled"></td>
+                    <td th:if="${session.customer}">
+                    	<input type="email" id="email" name="email" th:value="${session.customer.email}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.customer}">
+                    	<input type="email" id="email" name="email" disabled="disabled">
+                    </td>
                 </tr>
                 <tr>
                     <td>Địa chỉ:</td>
-                    <td><input type="text" id="customeraddress" name="diachi" value="Địa chỉ" disabled="disabled"></td>
+                    <td th:if="${session.customer}">
+                    	<input type="text" id="address" name="address" th:value="${session.customer.address}" disabled="disabled">
+                    </td>
+                    <td th:unless="${session.customer}">
+                    	<input type="text" id="address" name="address" disabled="disabled">
+                    </td>
                 </tr>
             </tbody>
         </table>
         <div class="row justify_content_e">
-            <button type="submit" class="btn btn-primary text mr-3">Xác nhận</button>
-            <button type="button" class="btn btn-danger text">Quay lại</button>
+            <a th:href="@{/supermarket/member/bill/add_memberCard}" type="button" class="btn btn-primary text mr-3">Xác nhận</a>
+            <a th:href="@{/supermarket/member/payment}" type="button" class="btn btn-danger text">Quay lại</a>
         </div>
     </div>
+    <script th:src="@{/JS/member_card.js}"></script>
 </body>
 </html>

@@ -9,46 +9,41 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/CSS/style.css}">
-    <title>Repair Product</title>
+    <title>Add Product</title>
 </head>
 <body>
 	<div class="container">
-        <h1 class="al-c title">Repair Product</h1>
-        <form th:action="@{/supermarket/product/update}" th:method="PUT" th:object="${product}" th:onsubmit="return validateDate()">
+        <h1 class="al-c title">Add Product</h1>
+        <form th:action="@{/supermarket/product/add}" th:method="POST">
             <table class="table">
                 <tbody>
-                    <tr >
-                        <td>Mã:</td>
-                        <td>
-                        	<input type="text" id="id" name="id" th:value="${product.id}" disabled="disabled">
-                        	<input type="hidden" th:field="*{id}">
-                        </td>
+                    <tr >                  
                         <td>Tên:</td>
-                        <td><input type="text" id="name" name="name" th:value="${product.name}" required="required"></td>
+                        <td><input type="text" id="name" name="name" required="required"></td>
                     </tr>
                     <tr>
                         <td>Loại:</td>
-                        <td><input type="text" id="type" name="type" th:value="${product.type}" required="required"></td>
+                        <td><input type="text" id="type" name="type" required="required"></td>
                         <td>Kích thước:</td>
-                        <td><input type="text" id="size" name="size" th:value="${product.size}" required="required"></td>
+                        <td><input type="text" id="size" name="size" required="required"></td>
                     </tr>
                     <tr>
                         <td>Mô tả:</td>
-                        <td><textarea id="description" name="description" rows="4" th:value="${product.description}" th:text="${product.description}"></textarea></td>
+                        <td><textarea id="description" name="description" rows="4"></textarea></td>
                         <td>Giá:</td>
-                        <td><input type="number" id="price" name="price" th:value="${product.price}" required="required"></td>
+                        <td><input type="number" id="price" name="price" required="required"></td>
                     </tr>
                     <tr>
                         <td>Số lượng tồn:</td>
-                        <td><input type="number" id="quantityInStock" name="quantityInStock" th:value="${product.quantityInStock}" required="required"></td>
+                        <td><input type="number" id="quantityInStock" name="quantityInStock" required="required"></td>
                         <td>Lô sản xuất:</td>
-                        <td><input type="text" id="productionBatch" name="productionBatch" th:value="${product.productionBatch}" required="required"></td>
+                        <td><input type="text" id="productionBatch" name="productionBatch" required="required"></td>
                     </tr>
                     <tr>
                         <td>Ngày sản xuất:</td>
-                        <td><input type="date" id="manufacturingDate" name="manufacturingDate" th:value="${product.manufacturingDate}" required="required"></td>
+                        <td><input type="date" id="manufacturingDate" name="manufacturingDate" required="required"></td>
                         <td>Hạn sử dụng:</td>
-                        <td><input type="date" id="expiryDate" name="expiryDate" th:value="${product.expiryDate}" required="required"></td>
+                        <td><input type="date" id="expiryDate" name="expiryDate" required="required"></td>
                     </tr>
                 </tbody>
             </table>

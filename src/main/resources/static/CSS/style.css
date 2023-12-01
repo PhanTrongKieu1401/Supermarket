@@ -12,6 +12,10 @@
     padding: 0px;
 }
 
+.error{
+   	border: 1px solid red;
+}
+
 /* mất dấu mũi tên */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
